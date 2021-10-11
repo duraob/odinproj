@@ -1,0 +1,1 @@
+This current project for "The Odin Project", we are practicing our HTML skills and this is the site.
