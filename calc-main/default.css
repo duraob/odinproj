@@ -1,0 +1,103 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: papayawhip;
+}
+
+.site-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.logo {
+    width: 75px;
+    height: auto;
+    border-radius: 25%;
+}
+
+
+
+.main-window {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    width: 350px;
+    padding: 10px 5px 10px 5px;
+    border-radius: 5%;
+    background-color:lightgrey;
+    border: 3px solid black;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    border: 3px solid black;
+    border-radius: 2%;
+    width: 300px;
+    height: 75px;
+    align-items: flex-end;
+    justify-content: center;
+    background-color: snow;
+}
+
+.screen-content {
+    margin: 1px;
+    font-size: 18px;
+}
+
+#main-num {
+    font-size: 36px;
+}
+
+.calc-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    padding: 5px 10px 5px 10px;
+}
+
+.op-but {
+    flex: 2;
+    padding: 15px 50px 15px 50px;
+    font-size: 15px;
+    margin: 5px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 5%;
+    background-color: snow;
+}
+
+.body-buttons {
+    width: 300px;
+}
+
+.but {
+    flex: 4;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 15%;
+    background-color: snow;
+}
+
+#butclr {
+    background-color: tomato;
+}
+
+#butdel {
+    background-color: cornflowerblue;
+}
+
+.hover {
+    background-color: slategray;
+}
+
