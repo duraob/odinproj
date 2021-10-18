@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="lib-script.js" defer></script>
+    <link rel="stylesheet" href="default.css"/>
+    <title>Jet's Goofy Library</title>
+</head>
+<body>
+    <header class="header">
+        <h2 class="title">Jet's Goofy Library</h2>
+    </header>
+    <div class="main-app">
+        <button id="addBookBtn">Add Book</button>
+    </div>
+    <div class="library">
+
+    </div>
+    <div class="form-container">    
+        <form id="bookForm" action="/lib-script.js">
+            <h3>Add Book</h3>
+            <input type="text" name="title" placeholder ='Title' required>
+            <input type="text" name="auth" placeholder='Author' required>
+            <input type="text" name="pages" placeholder='Pages' required>
+            <div id='status-box'>
+                <label for="status">Read status?</label>
+                <input type="checkbox" name="status" required><br>
+            </div>
+            <input type="submit"  form="bookForm" value="SUBMIT" id="submitBtn">
+            <button id='closeBtn'>CLOSE</button>
+        </form>
+    </div>
+
+</body>
+</html>

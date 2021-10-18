@@ -1,0 +1,68 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: aqua;
+}
+
+.main-app {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: aquamarine;
+    padding: 25px;
+}
+
+.library {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.bookCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 5px solid black;
+    border-radius: 25px;
+    height: 300px;
+    width: 250px;
+    padding: 5px;
+    margin: 5px;
+    background-color:cornsilk;
+}
+
+.bookCard * {
+    margin: 5px;
+}
+
+#bookForm {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, 5%);
+    border: 3px solid #999999;
+    z-index: 9;
+    max-width: 300px;
+    padding: 20px;
+    background-color:cadetblue;
+}
+
+#status-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+}
+
+.input:focus {
+    outline: none;
+    border-color: black;
+  }
+
+form * {
+    margin: 2px;
+}

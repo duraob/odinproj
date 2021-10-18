@@ -1,64 +1,122 @@
 /* MATH FUNCITON */
-function add(itemOne, itemTwo) {
-    return Number(itemOne) + Number(itemTwo);
+function add(a, b) {
+    return Number(a) + Number(b)
 }
 
-function subtract(itemOne, itemTwo) {
-    return Number(itemOne) - Number(itemTwo);
+function subtract(a, b) {
+    return Number(a) - Number(b)
 }
 
-function multiply(itemOne, itemTwo) {
-    return Number(itemOne) * Number(itemTwo);
+function multiply(a, b) {
+    return Number(a) * Number(b)
 }
 
-function divide(itemOne, itemTwo) {
-    return Number(itemOne) / Number(itemTwo);
+function divide(a, b) {
+    return Number(a) / Number(b)
 }
 
-function operate(itemOne, itemTwo, operator){
-    let result = 0;
-
-    if(operator == "+")
-    {
-        result = add(itemOne, itemTwo);
+function operate(a, b, operator){
+    switch (operator) {
+        case '+':
+          return add(a, b);
+        case '-':
+          return subtract(a, b);
+        case '*':
+          return multiply(a, b);
+        case '/':
+          if (b === 0) return null;
+          else return divide(a, b)
+        default:
+          return null
     }
-    else if(operator == "-") 
-    {
-        result = subtract(itemOne, itemTwo);
-    } 
-    else if(operator == "*")
-    {
-        result = multiply(itemOne, itemTwo);
-    }
-    else if(operator == "/") 
-    {
-        result = divide(itemOne, itemTwo);
-    }
-    else {
-        result = 0;
-    }
-
-    return result;
 }
 
+function appendNum(num)
+{
+    if(curScreen.textContent === '0')
+      if(num === '0')
+        return
+      else
+        curScreen.textContent = num
+    else
+      curScreen.textContent += num
+}
+
+function setOperation(op) {
+    firstNum = curScreen.textContent
+    operation = op
+    lastScreen.textContent = `${firstNum} ${operation}`
+    curScreen.textContent = '0'
+  }
+  
+  function evaluate() {
+    if (operation == null) return
+    if (operation == '/' && curScreen.textContent == '0') {
+      alert("You can't divide by 0!")
+      return
+    }
+    secondNum = curScreen.textContent
+    curScreen.textContent = operate(firstNum, secondNum, operation)
+    lastScreen.textContent = `${firstNum} ${operation} ${secondNum} =`
+    operation = null
+
+  }
+
+  function del()
+  {
+    curScreen.textContent = curScreen.textContent.substring(0, curScreen.textContent.length - 1)
+  }
+
+  function clear()
+  {
+    curScreen.textContent = '0'
+    lastScreen.textContent = ''
+    firstNum = ''
+    secondNum = ''
+    operation = null
+  }
+
+  function addDot() {
+    if (curScreen.textContent == '')
+        curScreen.textContent = '0'
+    if (curScreen.textContent.includes('.')) return
+    curScreen.textContent += '.'
+  }
+
+  function hover(item) {
+    item.addEventListener(('mouseenter'), ()=> item.style.filter = 'brightness(75%)')
+    item.addEventListener(('mouseleave'), ()=> item.style.filter = 'brightness(100%)')
+  }
 
 /* EVENTS 
-const mainNum = document.querySelector();
-const secondNum = document.querySelector();
 */
-const buttons = document.querySelectorAll("button");
+let firstNum = ''
+let secondNum = ''
+let operation = null
 
-buttons.forEach((button) => 
-{
-    button.addEventListener('mouseenter', () =>
-    {
-        button.classList.add('hover');
-    });
-    button.addEventListener('mouseleave', () =>
-    {
-        button.classList.remove('hover');
-    });
-    button.addEventListener('click', function(e) {
-        const selection = e.target.id;
-    });
-});
+const buttons = document.querySelectorAll('button')
+const numButs = document.querySelectorAll('.num')
+const operButs = document.querySelectorAll('.oper')
+const clearBut = document.querySelector('#butclr')
+const delBut = document.querySelector('#butdel')
+const eqBut = document.querySelector('#buteq')
+const dotBut = document.querySelector('#butdot')
+const lastScreen = document.querySelector('#current-op')
+const curScreen = document.querySelector('#main-num')
+
+buttons.forEach((button) => hover(button))
+
+numButs.forEach((button) =>
+    button.addEventListener(('click'), ()=> appendNum(button.textContent))
+)
+
+operButs.forEach((button) => 
+    button.addEventListener(('click'), ()=> setOperation(button.textContent))
+)
+
+eqBut.addEventListener(('click'), evaluate)
+clearBut.addEventListener(('click'), clear)
+delBut.addEventListener(('click'),  del)
+dotBut.addEventListener(('click'), addDot)
+
+
