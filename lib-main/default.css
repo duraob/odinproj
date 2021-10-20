@@ -1,16 +1,33 @@
+body {
+    margin: 0;
+    background-color:cadetblue;
+}
+
 .header {
     display: flex;
     justify-content: center;
     align-content: center;
-    background-color: aqua;
+    background-color:darkcyan;
+    padding: 15px;
 }
 
 .main-app {
     display: flex;
     justify-content: center;
     align-content: center;
-    background-color: aquamarine;
+    background-color: cadetblue;
     padding: 25px;
+}
+
+#addBookBtn {
+    padding: 5px;
+    width: 150px;
+    height: 50px;
+    background-color:cornsilk;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: large;
 }
 
 .library {
@@ -48,7 +65,7 @@
     z-index: 9;
     max-width: 300px;
     padding: 20px;
-    background-color:cadetblue;
+    background-color:cornsilk;
 }
 
 #status-box {

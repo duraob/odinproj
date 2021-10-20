@@ -7,20 +7,21 @@ function Book(title,  author, pages, read) {
     this.read = read
 
     this.readStatus = function() {
-        let status = 'not read yet'
+        let status = ''
 
-        if(this.read){
-            status = 'you read this book'
-        }
+        if(this.read)
+            status = 'READ'
+        else
+            status = 'NOT READ'
 
         return status
     }
 
     this.info = function() {
         if(this.read){
-            let status = 'you read this book'
+            let status = 'READ'
         } else {
-            let status = 'not read yet'
+            let status = 'NOT READ'
         }
         bookInfo = `${this.title} by ${this.author}, ${this.pages} pages,  ${status}`
         return bookInfo
@@ -73,8 +74,26 @@ function closeForm(item) {
 }
 
 function removeBook(item) {
-    myLib.pop(item)
+    let bookIndex = myLib.indexOf(item)
+    myLib.splice(bookIndex, 1)
     libDisplay()
+}
+
+function changeReadStatus(book, status)
+{
+    if(book.read)
+    {
+        book.read = false
+        status.style.backgroundColor = 'slategray'
+        status.textContent = book.readStatus()
+    }
+    else
+    {
+        status.style.backgroundColor = 'green'
+        book.read = true
+        status.textContent = book.readStatus()
+    }
+
 }
 
 function addBookCard(book) {
@@ -87,8 +106,10 @@ function addBookCard(book) {
     auth.textContent = book.author
     const pages = document.createElement('h3')
     pages.textContent = book.pages
-    const status = document.createElement('h3')
-    status.textContent = book.readStatus()
+    const statusBtn= document.createElement('button')
+    statusBtn.textContent = book.readStatus()
+    statusBtn.style.backgroundColor = (book.read ? 'green' : 'slategray')
+    statusBtn.addEventListener(('click'), ()=> changeReadStatus(book, statusBtn))
     const removeBtn = document.createElement('button')
     removeBtn.textContent = 'REMOVE'
     removeBtn.addEventListener(('click'), ()=> removeBook(book))
@@ -96,7 +117,7 @@ function addBookCard(book) {
     bookDiv.appendChild(title)
     bookDiv.appendChild(auth)
     bookDiv.appendChild(pages)
-    bookDiv.appendChild(status)
+    bookDiv.appendChild(statusBtn)
     bookDiv.appendChild(removeBtn)
 
     const libDiv = document.querySelector('.library')

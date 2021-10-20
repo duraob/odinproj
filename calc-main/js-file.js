@@ -118,5 +118,3 @@ eqBut.addEventListener(('click'), evaluate)
 clearBut.addEventListener(('click'), clear)
 delBut.addEventListener(('click'),  del)
 dotBut.addEventListener(('click'), addDot)
-
-
